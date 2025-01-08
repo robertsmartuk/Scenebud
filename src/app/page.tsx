@@ -1,101 +1,140 @@
-import Image from "next/image";
+import React from 'react';
+import { ArrowRight, Calendar, MapPin, Music, Users, Building2, Search } from 'lucide-react';
+import Link from 'next/link';
 
-export default function Home() {
+
+const Homepage = () => {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <header className="bg-white">
+        <div className="max-w-7xl mx-auto px-4 py-5">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-8">
+              <Link href="/">
+                <img src="/Logo Horiz.png" alt="Scenebud Logo" className="w-[300px] h-auto" />
+              </Link>
+              <div className="relative w-[400px]">
+                <Search className="absolute left-3 top-2.5 text-purple-700 w-5 h-5" />
+                <input
+                  type="text"
+                  placeholder="Search events, artists, venues..."
+                  className="w-full pl-10 pr-4 py-2 border border-purple-700 rounded-lg text-purple-700 placeholder-purple-400"
+                />
+              </div>
+            </div>
+            <nav className="flex items-center gap-6">
+              <Link href="/" className="text-purple-700 hover:underline">Home</Link>
+              <Link href="/dashboard" className="text-purple-700 hover:underline">Dashboard</Link>
+              <Link href="/events" className="text-purple-700 hover:underline">Events</Link>
+              <Link href="/login" className="text-purple-700 hover:underline">Log In</Link>
+            </nav>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </header>
+
+      {/* Hero Section */}
+      <section className="py-20 px-4">
+        <div className="max-w-7xl mx-auto flex items-center gap-12">
+          <div className="flex-1 space-y-8">
+            <h1 className="text-5xl text-purple-700 font-light leading-tight">
+              We help music fans<br />
+              discover the best live music<br />
+              by being the only place to list<br />
+              <strong>every gig, everywhere.</strong>
+            </h1>
+            
+            {/* Quick Search Bar */}
+            <div className="max-w-md">
+              <div className="relative">
+                <Search className="absolute left-3 top-2.5 text-purple-700 w-5 h-5" />
+                <input 
+                  type="text"
+                  placeholder="Search events, artists, venues..."
+                  className="w-full pl-10 pr-4 py-2 border border-purple-700 rounded-lg text-purple-700 placeholder-purple-400"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="flex-1">
+          <img src="/Header Square.png" alt="Scenebud Logo" className="w-[500px] h-auto" />
+          </div>
+        </div>
+      </section>
+
+      {/* Industry Features Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-3 gap-8">
+            {/* For Artists */}
+            <div className="p-6 bg-white rounded-lg border border-gray-200 hover:border-purple-700 transition-colors">
+              <Users className="w-8 h-8 text-purple-700 mb-4" />
+              <h3 className="text-xl font-semibold text-purple-700 mb-2">For Artists</h3>
+              <p className="text-gray-600 mb-4">Create your artist profile and reach more fans.</p>
+              <a href="/artistsubmit" className="text-purple-700 hover:underline flex items-center gap-2">
+                Create Artist Profile <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+
+            {/* For Venues */}
+            <div className="p-6 bg-white rounded-lg border border-gray-200 hover:border-purple-700 transition-colors">
+              <Building2 className="w-8 h-8 text-purple-700 mb-4" />
+              <h3 className="text-xl font-semibold text-purple-700 mb-2">For Venues</h3>
+              <p className="text-gray-600 mb-4">Highlight your venue and promote your events.</p>
+              <a href="/venuesubmit" className="text-purple-700 hover:underline flex items-center gap-2">
+                Create Venue Profile <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+
+            {/* For Promoters */}
+            <div className="p-6 bg-white rounded-lg border border-gray-200 hover:border-purple-700 transition-colors">
+              <Calendar className="w-8 h-8 text-purple-700 mb-4" />
+              <h3 className="text-xl font-semibold text-purple-700 mb-2">For Promoters</h3>
+              <p className="text-gray-600 mb-4">List your events and sell your tickets.</p>
+              <a href="/eventsubmit" className="text-purple-700 hover:underline flex items-center gap-2">
+                Submit an Event <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="py-20 px-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-2xl text-purple-700 mb-8">
+            Find out who's playing before anyone else does
+          </h2>
+          <form className="space-y-4">
+            <div className="flex gap-4 justify-center">
+              <input
+                type="email"
+                placeholder="hello@example.com"
+                className="flex-1 max-w-md px-4 py-2 border border-purple-700 rounded-lg text-purple-700"
+              />
+              <button 
+                className="px-6 py-2 border border-purple-700 text-purple-700 rounded-lg hover:bg-purple-700 hover:text-white transition-colors"
+              >
+                Join our mailing list
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t">
+        <div className="max-w-7xl mx-auto px-4 py-4">
+          <ul className="flex justify-center items-center gap-8">
+            <li><a href="/" className="text-purple-700 hover:underline">Scenebud.com</a></li>
+            <li><a href="/"><img src="/Logo Horiz.png" alt="Scenebud Logo" className="w-[150px] h-auto" /></a></li>
+            <li><a href="mailto:hello@scenebud.com" className="text-purple-700 hover:underline">Contact Me</a></li>
+            <li><a href="https://www.instagram.com/scenebud/" className="text-purple-700 hover:underline">Instagram</a></li>
+          </ul>
+        </div>
       </footer>
     </div>
   );
-}
+};
+
+export default Homepage;
